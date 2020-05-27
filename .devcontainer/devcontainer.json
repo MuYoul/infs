@@ -31,8 +31,14 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python"
-	]
+	],
 
+	"mounts": [
+	"source=vscode_vol,target=/root/.vscode-server/extensions,type=volume",
+	// And/or for VS Code Insiders
+	// "source=unique-vol-name-here-insiders,target=/root/.vscode-server-insiders/extensions,type=volume",
+	],
+	
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 

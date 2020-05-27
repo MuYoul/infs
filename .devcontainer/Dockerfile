@@ -7,7 +7,8 @@
 # To fully customize the contents of this image, use the following Dockerfile instead:
 # https://github.com/microsoft/vscode-dev-containers/tree/v0.117.0/containers/python-3/.devcontainer/base.Dockerfile
 ARG VARIANT="3"
-FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
+# FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
+FROM python:3
 
 # [Optional] If your requirements rarely change, uncomment this section to add them to the image.
 #
@@ -27,5 +28,6 @@ FROM mcr.microsoft.com/vscode/devcontainers/python:0-${VARIANT}
 #    && rm -rf /var/lib/apt/lists/*
 # ENV DEBIAN_FRONTEND=dialog
 
+RUN curl -sL repo.opsnow.io/valve-ctl/install | bash
 RUN ssh-agent
 

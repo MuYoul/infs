@@ -2,7 +2,7 @@ FROM python:3
 
 RUN apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog 2>&1 \
-    && apt-get -y install git \
+    && apt-get -y install git curl sudo \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \
@@ -16,9 +16,12 @@ ENV APP_PATH ${BASE_PATH}/infs
 #mkdir
 RUN mkdir -p $SSH_DIR
 
+#valve install
+RUN curl -sL repo.opsnow.io/valve-ctl/install | bash
+
 #code clone
 WORKDIR ${BASE_PATH}
-RUN git clone https://github.com/ccassistant/Ants-Auto-Trading-Bot.git
+RUN git clone https://github.com/MuYoul/infs.git
 
 #bot copy
 WORKDIR ${APP_PATH}
